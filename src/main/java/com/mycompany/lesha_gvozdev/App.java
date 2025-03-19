@@ -56,7 +56,6 @@ public class App extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jTextField6 = new javax.swing.JTextField();
         jButton5 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -138,6 +137,11 @@ public class App extends javax.swing.JFrame {
         });
 
         jButton2.setText("Очистить");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel26.setText("ср. ариф. положительных");
 
@@ -229,8 +233,6 @@ public class App extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setText("Очистить");
-
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -245,12 +247,10 @@ public class App extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
-                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jButton4)
-                                .addComponent(jLabel8))
+                            .addComponent(jLabel8)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jTextField6))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(122, Short.MAX_VALUE))
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton5)
@@ -270,9 +270,7 @@ public class App extends javax.swing.JFrame {
                     .addComponent(jLabel8)
                     .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 127, Short.MAX_VALUE)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton5)
-                    .addComponent(jButton4))
+                .addComponent(jButton5)
                 .addGap(65, 65, 65))
         );
 
@@ -280,9 +278,9 @@ public class App extends javax.swing.JFrame {
 
         jLabel10.setText("<html>57. В одномерном массиве хранятся сведения о стоимости товаров, проданных<br> фирмой за каждый месяц года. Определить: а) общую сумму продаж за год; б)<br> номера месяцев, когда сумма продаж превысила среднюю за год; в)<br> в каком полугодии работа фирмы была более эффективна.</html>");
 
-        jLabel4.setText("исходная строка");
+        jLabel4.setText("общая сумма продаж за год");
 
-        jLabel5.setText("результирующая строка");
+        jLabel5.setText("№ месяцев, когда сумма продаж превысила среднюю за год");
 
         jButton6.setText("Очистить");
 
@@ -305,13 +303,13 @@ public class App extends javax.swing.JFrame {
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addComponent(jButton6)
@@ -704,24 +702,23 @@ public class App extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-int n =(int) jSpinner1.getValue();
-int m;
+        int n = (int) jSpinner1.getValue();
+        int m;
 // Создаем объект Scanner для ввода данных с клавиатуры
-        
+
         int[] array = new int[n]; // Массив заданного размера
 
         // Создаем объект Random
         Random random = new Random();
-        String str ="";
+        String str = "";
         for (int i = 0; i < array.length; i++) {
-            array[i] = random.nextInt(21) - 10; 
-            str +=array[i]+" ";
+            array[i] = random.nextInt(21) - 10;
+            str += array[i] + " ";
         }
         jTextField1.setText(str);
-        
+
         for (int num : array) {
         }
-
 
         // Переменные для подсчета сумм и количества
         int positiveSum = 0;
@@ -748,29 +745,71 @@ int m;
         double negativeAverage = (negativeCount > 0) ? (double) negativeSum / negativeCount : 0;
 
         // Вывод результатов
-        jTextField17.setText  (positiveAverage +"");
-        jTextField2.setText(negativeAverage +"");
-        jTextField18.setText(zeroCount+"");       
+        jTextField17.setText(positiveAverage + "");
+        jTextField2.setText(negativeAverage + "");
+        jTextField18.setText(zeroCount + "");
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
+        double[] sales = new double[12];
+        Random random = new Random();
+        for (int i = 0; i < sales.length; i++) {
+            sales[i] = 50 + random.nextDouble() * 200; // Случайное значение от 50 до 250
+
+            System.out.print(sales[i] + " ");
+        }
+        // Общая сумма продаж за год
+        double totalSales = 0;
+        for (double sale : sales) {
+            totalSales += sale;
+
+        }
+        System.out.println();
+        System.out.println("общая сумма: " + totalSales);
+        int bestMonthIndex = 0;
+        for (int i = 1; i < sales.length; i++) {
+            if (sales[i] > sales[bestMonthIndex]) {
+                bestMonthIndex = i;
+            }
+        }
+
+        // Определяем среднюю сумму продаж и номера месяцев с продажами выше средней
+        double averageSales = totalSales / sales.length;
+        System.out.print("месяц выше среднего: ");
+        for (int i = 0; i < sales.length; i++) {
+            if (sales[i] > averageSales) {
+                System.out.print((i + 1) + " ");
+            }
+        }
+        System.out.println();
+
+        // Сравниваем продажи в первом и втором полугодиях
+        double firstHalf = 0;
+        for (int i = 0; i < 6; i++) {
+            firstHalf += sales[i];
+        }
+
+        double secondHalf = totalSales - firstHalf;
+        System.out.println("Более эффективное полугодие: " + (firstHalf > secondHalf ? 1 : (secondHalf > firstHalf ? 2 : "Одинаково")));
+        System.out.println("Продажи во втором полугодии" + secondHalf);
+        System.out.println("Продажи в первом полугодии: " + firstHalf);
+        System.out.println("Месяц " + (bestMonthIndex + 1) + " был самым эффективным, с продажами: " + sales[bestMonthIndex]);
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-      // Создаем Scanner для ввода данных 
+        // Создаем Scanner для ввода данных 
         Scanner scanner = new Scanner(System.in);
-        int size = 20;   
+        int size = 20;
         int[] array = new int[size];
         // Создаем Random для создания случайных чисел
         Random random = new Random();
-        String str ="";
+        String str = "";
         for (int i = 0; i < array.length; i++) {
             array[i] = random.nextInt(41) - 20;
-            str +=array[i]+" ";
+            str += array[i] + " ";
         }
-            jTextField5.setText(str);
-        
+        jTextField5.setText(str);
+
         for (int num : array) {
         }
         int maxNegative = Integer.MIN_VALUE;
@@ -786,7 +825,7 @@ int m;
 
         // Вывод результата
         if (foundNegative) {
-        jTextField6.setText(maxNegative+ "");
+            jTextField6.setText(maxNegative + "");
         } else {
             jTextField6.setText("Отрицательных элементов в массиве нет.");
         }
@@ -794,6 +833,14 @@ int m;
         // Закрытие сканера
         scanner.close();
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        jSpinner1.setValue(0);
+        jTextField1.setText("");
+        jTextField2.setText("");
+        jTextField17.setText("");
+        jTextField18.setText("");
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -841,7 +888,6 @@ int m;
     private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
